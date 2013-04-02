@@ -91,7 +91,7 @@ module.exports = function (grunt) {
     testacular: {
       unit: {
         configFile: 'config/testacular.conf.js',
-        singleRun: true
+        singleRun: false
       }
     },
     coffee: {
