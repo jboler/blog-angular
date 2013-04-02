@@ -1,0 +1,55 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" ng-app="blogApp"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" ng-app="blogApp"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" ng-app="blogApp"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" ng-app="blogApp"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="components/bootstrap-sass/bootstrap-2.3.1.css">
+    <link rel="stylesheet" href="components/angular-ui/build/angular-ui.min.css">
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/themes/redmond/jquery-ui.css">
+    <link rel="stylesheet" href="styles/main.css">
+  </head>
+  <body>
+
+    <!--[if lt IE 8]>
+      <p>You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> to better experience this site.</p>
+    <![endif]-->
+
+    <!--[if lt IE 9]>
+      <script src="components/es5-shim/es5-shim.js"></script>
+      <script src="components/json3/lib/json3.min.js"></script>
+    <![endif]-->
+
+    <div id="header" class="container">
+      <div class="row">
+        <div class="span6">
+          <h1><a href="#/posts">Blog</a></h1>
+        </div>
+        <div class="span6">
+          <h5 class="align-right"><a href="#/posts/admin">Admin</a></h5>
+        </div>
+      </div>
+    </div>
+
+    <div id="main" class="container" ng-view></div>
+
+    <script src="components/modernizr/modernizr.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+    <script src="components/angular/angular.js"></script>
+    <script src="components/angular-ui/build/angular-ui.js"></script>
+
+    <script src="scripts/data.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers.js"></script>
+    <script src="scripts/filters.js"></script>
+    <script src="scripts/services.js"></script>
+    <script src="scripts/directives.js"></script>
+
+  </body>
+</html>

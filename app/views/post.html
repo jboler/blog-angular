@@ -1,0 +1,35 @@
+<div class="row">
+
+
+  <div class="span10">
+
+    <div class="posts">
+      <div class="post">
+        <h2><a>{{post.title}}</a></h2>
+        <h4>
+          Published: {{post.date | date:'MMM dd, yyyy'}}
+        </h4>
+        <p>{{post.body}}</p>
+      </div>
+    </div>
+
+    <div id="comments">
+      <h3>Comments</h3>
+      <form name="form" novalidate>
+        <input type="text" ng-model="name" name="name" placeholder="name" required>
+        <br />
+        <textarea ng-model="comment" name="comment" placeholder="comment..." class="span5" rows="10" required></textarea>
+        <br />
+        <input type="submit" value="Submit" ng-click="saveComment()" ng-disabled="form.$invalid" class="btn btn-primary" />
+      </form>
+
+      <div ng-repeat="comment in post.comments | orderBy:'-date'" class="comment">
+        <h5>Comment by <span class="commenter-name">{{comment.name}}</span> {{comment.date | date:'MMM dd, yyyy'}}</h5>
+        <p class="comment-text">{{comment.comment}}</p>
+      </div>
+    </div>    
+
+  </div>
+
+
+</div>

@@ -1,0 +1,23 @@
+<div class="row">
+
+  <div class="span12">
+    <h4>Comments for {{post.title}}</h4>
+    <br /><br />
+  </div>
+
+  <table class="comments span12 align-left">
+    <tr>
+      <th>Date</th>
+      <th>Name</th>
+      <th>Comment</th>
+      <th>&nbsp;</th>
+    </tr>
+    <tr ng-repeat="comment in post.comments | orderBy:'-date'" class="comment">
+      <td>{{comment.date | date:'short'}}</td>
+      <td>{{comment.name}}</td>
+      <td>{{comment.comment}}</td>
+      <td><span class="btn btn-mini" ng-click="deleteComment(post.id, comment)" class="edit">delete</span></td>
+    </tr>
+  </table>
+
+</div>

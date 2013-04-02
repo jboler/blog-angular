@@ -1,0 +1,13 @@
+<form name="form" novalidate>
+  <input type="text" ng-model="post.title" placeholder="title" required>
+  <br />
+  <input type="text" ng-model="date" placeholder="date" ui-date required>
+  <br />
+  <label for="published">
+    <input id="published" type="checkbox" ng-model="post.published" value="true" placeholder="date"> Published?
+  </label>
+  <br />
+  <textarea ng-model="post.body" placeholder="body..." class="span5" rows="10" required></textarea>
+  <br />
+  <input type="submit" value="Submit" ng-click="updatePost()" ng-disabled="form.$invalid" class="btn btn-primary" />
+</form>
