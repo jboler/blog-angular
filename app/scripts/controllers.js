@@ -1,14 +1,25 @@
 'use strict';
 
 
-blogApp.controller('PostsController', function PostsController($scope, Post) {
+blogApp.controller('AppController', function($scope) {
+  $scope.setWindowTitle = 'Blog';
+
+  $scope.setWindowTitle = function(title) {
+    $scope.windowTitle = title;
+  };
+
+});
+
+
+blogApp.controller('PostsController', function($scope, Post) {
   $scope.posts = Post.query();
+  $scope.setWindowTitle('Blog');
 });
 
 
 blogApp.controller('PostController', function($scope, $routeParams, $location, Post) {
   $scope.post = Post.query($routeParams.postId);
-
+  $scope.setWindowTitle($scope.post.title + ' - Blog');
 
   $scope.saveComment = function() {
     Post.createComment($scope.post.id, $scope.name, $scope.comment);
@@ -22,6 +33,7 @@ blogApp.controller('PostController', function($scope, $routeParams, $location, P
 blogApp.controller('NewPostController', function($scope, $location, Post) {
   $scope.post = Post.new();
   $scope.date = new Date();
+  $scope.setWindowTitle('New Post - Blog');
 
   $scope.updatePost = function() {
     $scope.post.date = $scope.date.getTime().toString();
@@ -35,6 +47,7 @@ blogApp.controller('NewPostController', function($scope, $location, Post) {
 blogApp.controller('EditPostController', function($scope, $routeParams, $location, Post) {
   $scope.post = Post.query($routeParams.postId);
   $scope.date = new Date(parseInt($scope.post.date, 10));
+  $scope.setWindowTitle('Editing ' + $scope.post.title);
 
   $scope.updatePost = function() {
     $scope.post.date = $scope.date.getTime().toString();
@@ -47,6 +60,7 @@ blogApp.controller('EditPostController', function($scope, $routeParams, $locatio
 
 blogApp.controller('AdminPostsController', function($scope, $location, Post) {
   $scope.posts = Post.query();
+  $scope.setWindowTitle('Admin - Blog');
 
   $scope.togglePublished = function(post) {
     Post.togglePublished(post.id);
@@ -64,6 +78,7 @@ blogApp.controller('AdminPostsController', function($scope, $location, Post) {
 
 blogApp.controller('AdminCommentsController', function($scope, $routeParams, $location, Post) {
   $scope.post = Post.query($routeParams.postId);
+  $scope.setWindowTitle('Comments for ' + $scope.post.title + '- Blog');
 
   $scope.deleteComment = function(postId, comment) {
     Post.deleteComment(postId, comment);
